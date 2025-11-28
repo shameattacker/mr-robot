@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interno | Modern Interior Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"DM Serif Display"', 'serif'],
+              sans: ['"Jost"', 'sans-serif'],
+            },
+            colors: {
+              primary: '#CDA274',
+              primaryLight: '#E6D6C3',
+              secondary: '#292F36',
+              accent: '#F4F0EC',
+              textGray: '#4D5053',
+              darkBg: '#1B1B1B',
+              darkCard: '#2C2C2C',
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            },
+            animation: {
+              'shine': 'shine 2s linear infinite',
+            },
+            keyframes: {
+              shine: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #2C2C2C;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #CDA274;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b08b62;
+      }
+      
+      .glass {
+        background: rgba(27, 27, 27, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      .premium-glass {
+        background: rgba(30, 30, 30, 0.4);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      .glass-dark {
+        background: rgba(41, 47, 54, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L11 22L14 14L22 11L2 2Z' fill='%23CDA274' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E"), auto;
+      }
+      
+      a, button, [role="button"], input, select, textarea, .cursor-pointer {
+        cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L11 22L14 14L22 11L2 2Z' fill='%23292F36' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E"), pointer;
+      }
+
+      .noise-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+      
+      .blueprint-grid {
+        background-color: #151515;
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+
+      .raw-mode {
+        background-color: white !important;
+        color: black !important;
+        font-family: "Times New Roman", Times, serif !important;
+        line-height: 1.2 !important;
+        padding: 20px !important;
+        text-align: left !important;
+        overflow: hidden;
+        position: relative;
+      }
+      .raw-mode h1 { font-size: 2em; font-weight: bold; margin-bottom: 0.67em; color: black; }
+      .raw-mode h2 { font-size: 1.5em; font-weight: bold; margin-bottom: 0.83em; color: black; }
+      .raw-mode p { margin-bottom: 1em; color: black; }
+      .raw-mode a { color: blue !important; text-decoration: underline !important; cursor: auto !important; }
+      .raw-mode img { border: 1px solid gray; }
+      .raw-mode button { background: #eee; border: 1px solid gray; padding: 2px 6px; color: black; font-family: Arial; cursor: default; }
+      
+      .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          rgba(0,0,0,0.2) 50%,
+          rgba(0,0,0,0.2)
+        );
+        background-size: 100% 4px;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .glitch-active {
+        animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        position: relative;
+        filter: contrast(1.5) brightness(1.1);
+      }
+      
+      .glitch-active::before,
+      .glitch-active::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+      }
+
+      .glitch-active::after {
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim-1 {
+        0% { clip-path: inset(20% 0 80% 0); transform: translate(-5px, 2px); }
+        20% { clip-path: inset(60% 0 10% 0); transform: translate(5px, -2px); }
+        40% { clip-path: inset(40% 0 50% 0); transform: translate(-5px, 5px); }
+        60% { clip-path: inset(80% 0 5% 0); transform: translate(5px, -5px); }
+        80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 2px); }
+        100% { clip-path: inset(30% 0 50% 0); transform: translate(2px, -2px); }
+      }
+
+      @keyframes glitch-anim-2 {
+        0% { clip-path: inset(10% 0 60% 0); transform: translate(5px, -2px); filter: hue-rotate(90deg); }
+        20% { clip-path: inset(30% 0 20% 0); transform: translate(-5px, 2px); }
+        40% { clip-path: inset(70% 0 20% 0); transform: translate(5px, -5px); filter: hue-rotate(180deg); }
+        60% { clip-path: inset(20% 0 60% 0); transform: translate(-5px, 5px); }
+        80% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 2px); }
+        100% { clip-path: inset(0% 0 80% 0); transform: translate(-2px, -2px); filter: hue-rotate(270deg); }
+      }
+      
+      @keyframes rgb-shake {
+        0% { text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9; }
+        25% { text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9; }
+        50% { text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9; }
+        75% { text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9; }
+        100% { text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9; }
+      }
+
+      @keyframes flashbang {
+        0% { opacity: 0; }
+        5% { opacity: 1; background-color: white; }
+        90% { opacity: 1; background-color: white; }
+        100% { opacity: 0; }
+      }
+      .flash-overlay {
+        position: fixed;
+        inset: 0;
+        background: white;
+        z-index: 10000;
+        pointer-events: none;
+        animation: flashbang 2.5s ease-out forwards;
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="transition-colors duration-300 bg-darkBg text-white">
+    <div class="noise-bg"></div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
